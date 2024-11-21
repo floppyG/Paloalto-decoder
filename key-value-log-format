@@ -1,0 +1,45 @@
+
+<decoder name="paloalto-master">
+  <prematch type="pcre2">\|Palo Alto Networks\|PAN-OS\|\w+\b.\w+\b.\w+\b.\w+\b.</prematch>
+</decoder>
+
+<decoder name="paloalto-custom-decoder">
+  <parent>paloalto-master</parent>
+<regex type="pcre2">(?:\|)([^|]+)(?:\|)</regex>
+  <order>brand,OS_version,category</order>
+</decoder>
+
+<decoder name="paloalto-custom-decoder">
+  <parent>paloalto-master</parent>
+<regex type="pcre2">deviceExternalId=(.*?)\ cs1Label=(.*?)\ cs1=(.*?)\ cs3Label=(.*?)\ cs3=(.*?)\ cs4Label=(.*?)\ cs4=(.*?)\ cs5Label=(.*?)\ cs5=(.*?)\ cs6Label=(.*?)\ cs6=(.*?)\ cn1Label=(.*?)\ cn1=(.*?)\ cn2Label=(.*?)\ cn2=(.*?)\ cn3Label=(.*?)\ cn3=(.*?)\ src=(.*?)\ spt=(.*?)\ dpt=(.*?)\ cnt=(.*?)\ duser=(.*?)\ externalId=(.*?)\ cat=(.*?)\ end=(.*?)\ PanOSDGl1=(.*?)\ PanOSDGl2=(.*?)\ PanOSDGl3=(.*?)\ PanOSDGl4=(.*?)\ PanOSVsysName=(.*?)\ dvchost=(.*?)\ PanOSActionFlags=(.*?)\ PanOSUGFlags=(.*?)\ PanOSUserBySource=(.*?)\ PanOSTimeGeneratedHighResolution=(\S+)</regex>
+  
+  <order>deviceExternalId, cs1Label, cs1, cs3Label, cs3, cs4Label, cs4, cs5Label, cs5, cs6Label, cs6, cn1Label, cn1, cn2Label, cn2, cn3Label, cn3, src, spt, dpt, cnt, duser, externalId, cat, end, PanOSDGl1, PanOSDGl2, PanOSDGl3, PanOSDGl4, PanOSVsysName, dvchost, PanOSActionFlags, PanOSUGFlags, PanOSUserBySource, PanOSTimeGeneratedHighResolution</order>
+</decoder>
+
+<decoder name="paloalto-custom-decoder">
+  <parent>paloalto-master</parent>
+<regex type="pcre2">deviceExternalId=(.*?)\ suser=(.*?)\ cs3Label=(.*?)\ cs3=(.*?)\ shost=(.*?)\ src=(.*?)\ cnt=(.*?)\ externalId=(.*?)\ cat=(.*?)\ start=(.*?)\ cs2Label=(.*?)\ cs2=(.*?)\ PanOSActionFlags=(.*?)\ PanOSDGl1=(.*?)\ PanOSDGl2=(.*?)\ PanOSDGl3=(.*?)\ PanOSDGl4=(.*?)\ PanOSVsysName=(.*?)\ dvchost=(.*?)\ cn2Label=(.*?)\ cn2=(.*?)\ c6a2Label=(.*?)\ c6a2=(.*?)\ PanOSHostID=(.*?)\ PanOSEndpointSerialNumber=(.*?)\ PanOSEndpointMac=(.*?)\ PanOSTimeGeneratedHighResolution=(\S+)</regex>
+  
+  <order>deviceExternalId, suser, cs3Label, cs3, shost, src, cnt, externalId, cat, start, cs2Label, cs2, PanOSActionFlags, PanOSDGl1, PanOSDGl2, PanOSDGl3, PanOSDGl4, PanOSVsysName, dvchost, cn2Label, cn2, c6a2Label, c6a2, PanOSHostID, PanOSEndpointSerialNumber, PanOSEndpointMac, PanOSTimeGeneratedHighResolution</order>
+</decoder>
+
+<decoder name="paloalto-custom-decoder">
+  <parent>paloalto-master</parent>
+<regex type="pcre2">PanOSDeviceSN=(\S+)\ PanOSLogTimeStamp=(.*?)\ PanOSVirtualSystem=(.*?)\ PanOSEventID=(.*?)\ PanOSStage=(.*?)\ PanOSAuthMethod=(.*?)\ PanOSTunnelType=(.*?)\ PanOSSourceUserName=(.*?)\ PanOSSourceRegion=(.*?)\ PanOSEndpointDeviceName=(.*?)\ PanOSPublicIPv4=(.*?)\ PanOSPublicIPv6=(.*?)\ PanOSPrivateIPv4=(.*?)\ PanOSPrivateIPv6=(.*?)\ PanOSHostID=(.*?)\ PanOSDeviceSN=(\S+)\ PanOSGlobalProtectClientVersion=(.*?)\ PanOSEndpointOSType=(.*?)\ PanOSEndpointOSVersion=(.*?)\ PanOSCountOfRepeats=(.*?)\ PanOSQuarantineReason=(.*?)\ PanOSConnectionError=(.*?)\ PanOSDescription=(.*?)\ PanOSEventStatus=(.*?)\ PanOSGPGatewayLocation=(.*?)\ PanOSLoginDuration=(.*?)\ PanOSConnectionMethod=(.*?)\ PanOSConnectionErrorID=(.*?)\ PanOSPortal=(.*?)\ PanOSSequenceNo=(.*?)\ PanOSActionFlags=(.*?)\ PanOSTimeGeneratedHighResolution=(.*?)\ PanOSGatewaySelectionType=(.*?)\ PanOSSSLResponseTime=(.*?)\ PanOSGatewayPriority=(.*?)\ PanOSAttemptedGateways=(.*?)\ PanOSGateway=(.*)</regex>
+
+  <order>PanOSDeviceSN, PanOSLogTimeStamp, PanOSVirtualSystem, PanOSEventID, PanOSStage, PanOSAuthMethod, PanOSTunnelType, PanOSSourceUserName, PanOSSourceRegion, PanOSEndpointDeviceName, PanOSPublicIPv4, PanOSPublicIPv6, PanOSPrivateIPv4, PanOSPrivateIPv6, PanOSHostID, PanOSDeviceSN_2, PanOSGlobalProtectClientVersion, PanOSEndpointOSType, PanOSEndpointOSVersion, PanOSCountOfRepeats, PanOSQuarantineReason, PanOSConnectionError, PanOSDescription, PanOSEventStatus, PanOSGPGatewayLocation, PanOSLoginDuration, PanOSConnectionMethod, PanOSConnectionErrorID, PanOSPortal, PanOSSequenceNo, PanOSActionFlags, PanOSTimeGeneratedHighResolution, PanOSGatewaySelectionType, PanOSSSLResponseTime, PanOSGatewayPriority, PanOSAttemptedGateways, PanOSGateway</order>
+</decoder>
+
+
+
+<decoder name="paloalto-custom-decoder">
+  <parent>paloalto-master</parent>
+<regex type="pcre2">Pre-tunnel latency: (.*?)ms\, Post-tunnel latency: (.*?)ms</regex>
+  <order>Pre-tunnel-latency,Post-tunnel-latency</order>
+</decoder>
+
+<decoder name="paloalto-custom-decoder">
+  <parent>paloalto-master</parent>
+<regex type="pcre2">Auth latency: (.*?)ms</regex>
+  <order>Auth latency</order>
+</decoder>
